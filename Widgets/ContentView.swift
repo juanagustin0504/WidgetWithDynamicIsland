@@ -6,16 +6,24 @@
 //
 
 import SwiftUI
+import ActivityKit
 
 struct ContentView: View {
     var body: some View {
-        VStack {
-            Image(systemName: "globe")
-                .imageScale(.large)
-                .foregroundColor(.accentColor)
-            Text("Hello, World!")
+        Button("Start") {
+            let dynamicIslandWidgetAttributes = DynamicIslandWidgetAttributes(name: "test")
+            let contentState = DynamicIslandWidgetAttributes.ContentState(value: 7)
+            
+            do {
+                let activity = try Activity<DynamicIslandWidgetAttributes>.request(
+                    attributes: dynamicIslandWidgetAttributes,
+                    contentState: contentState
+                )
+                print(activity)
+            } catch {
+                print(error)
+            }
         }
-        .padding()
     }
 }
 
