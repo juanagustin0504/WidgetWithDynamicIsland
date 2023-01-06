@@ -1,4 +1,3 @@
-//
 //  DynamicIslandWidgetLiveActivity.swift
 //  DynamicIslandWidget
 //
@@ -23,32 +22,42 @@ struct DynamicIslandWidgetLiveActivity: Widget {
     var body: some WidgetConfiguration {
         ActivityConfiguration(for: DynamicIslandWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
-            VStack {
-                Text("Hello")
+            ZStack {
+//                randomColor.opacity(0.7)
+                Color(.gray).opacity(0.1)
+                LazyVStack { // Widget은 스크롤이 안되므로, List지원 x (대신 VStack 사용)
+                    Text("Lock Screen Widget")
+                        .foregroundColor(Color.white)
+                        .lineLimit(1)
+                    Image("image_1_1")
+                }.padding()
             }
-            .activityBackgroundTint(Color.cyan)
-            .activitySystemActionForegroundColor(Color.black)
             
         } dynamicIsland: { context in
             DynamicIsland {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Text("Leading")
+                    Button("Leading") {
+                        print("Leading Clicked!")
+                    }
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     Text("Trailing")
+                    Image(systemName: "heart")
                 }
                 DynamicIslandExpandedRegion(.bottom) {
                     Text("Bottom")
                     // more content
                 }
             } compactLeading: {
-                Text("L")
+                Text("♡")
             } compactTrailing: {
-                Text("T")
+                Image(systemName: "heart")
             } minimal: {
-                Text("Min")
+                VStack {
+                    Image(systemName: "heart.fill")
+                }
             }
             .widgetURL(URL(string: "http://www.apple.com"))
             .keylineTint(Color.red)
