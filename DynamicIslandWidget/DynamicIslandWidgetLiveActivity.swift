@@ -29,7 +29,14 @@ struct DynamicIslandWidgetLiveActivity: Widget {
                     Text("Lock Screen Widget")
                         .foregroundColor(Color.white)
                         .lineLimit(1)
-                    Image("image_1_1")
+                    Image(systemName: "heart")
+                    Image(systemName: "star")
+//                    let imageData = UserDefaults.standard.data(forKey: "qr_image_data")
+//                    let uiimage = UIImage(data: imageData!)!
+//                    let testImage = UIImage(named: "img_zeropay")!
+//                    Image(uiImage: testImage)
+//                            .resizable()
+//                            .frame(width: 100, height: 100)
                 }.padding()
             }
             
@@ -38,9 +45,7 @@ struct DynamicIslandWidgetLiveActivity: Widget {
                 // Expanded UI goes here.  Compose the expanded UI through
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.leading) {
-                    Button("Leading") {
-                        print("Leading Clicked!")
-                    }
+                    Image(systemName: "star.fill")
                 }
                 DynamicIslandExpandedRegion(.trailing) {
                     Text("Trailing")
@@ -51,16 +56,30 @@ struct DynamicIslandWidgetLiveActivity: Widget {
                     // more content
                 }
             } compactLeading: {
+//                let imageData = UserDefaults.standard.data(forKey: "qr_image_data")
+//                let uiimage = UIImage(data: imageData!)!
+//                let testImage = UIImage(named: "img_zeropay")!
+//                Image(uiImage: testImage)
+//                    .resizable()
+//                    .frame(width: 25, height: 25)
+                
                 Text("♡")
             } compactTrailing: {
                 Image(systemName: "heart")
             } minimal: {
                 VStack {
                     Image(systemName: "heart.fill")
+                    Image(systemName: "heart")
+//                    let imageData = UserDefaults.standard.data(forKey: "qr_image_data")
+//                    let uiimage = UIImage(data: imageData!)!
+//                    let testImage = UIImage(named: "img_zeropay")!
+//                    Image(uiImage: testImage)
+//                        .resizable()
+//                        .frame(width: 50, height: 50)
                 }
             }
             .widgetURL(URL(string: "http://www.apple.com"))
-            .keylineTint(Color.red)
+            .keylineTint(Color.cyan)
         }
     }
 }

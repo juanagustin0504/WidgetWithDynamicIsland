@@ -5,24 +5,31 @@
 //  Created by Webcash on 2022/12/13.
 //
 
+import UIKit
 import SwiftUI
 import ActivityKit
 
 struct ContentView: View {
     var body: some View {
-        Button("Start") {
-            let dynamicIslandWidgetAttributes = DynamicIslandWidgetAttributes(name: "test")
-            let contentState = DynamicIslandWidgetAttributes.ContentState(value: 7)
-            
-            do {
-                let activity = try Activity<DynamicIslandWidgetAttributes>.request(
-                    attributes: dynamicIslandWidgetAttributes,
-                    contentState: contentState
-                )
-                print(activity)
-            } catch {
-                print(error)
+        VStack {
+            Button("Start") {
+                
+//                let _ = SharedFunction.shared.setUserDefaultsValue("♡", forKey: "heart")
+                
+                let dynamicIslandWidgetAttributes = DynamicIslandWidgetAttributes(name: "test")
+                let contentState = DynamicIslandWidgetAttributes.ContentState(value: 7)
+                
+                do {
+                    let activity = try Activity<DynamicIslandWidgetAttributes>.request(
+                        attributes: dynamicIslandWidgetAttributes,
+                        contentState: contentState
+                    )
+                    print(activity)
+                } catch {
+                    print(error)
+                }
             }
+            
         }
     }
 }
