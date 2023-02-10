@@ -17,6 +17,11 @@
 		7614C66E2994E11100C8DFE5 /* PRProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C66D2994E11100C8DFE5 /* PRProvider.swift */; };
 		7614C6722994E13400C8DFE5 /* PREntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C6712994E13400C8DFE5 /* PREntryView.swift */; };
 		7614C6762994E1FA00C8DFE5 /* GitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C6752994E1FA00C8DFE5 /* GitModel.swift */; };
+		7614C6782994F80E00C8DFE5 /* PRProvider.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C66D2994E11100C8DFE5 /* PRProvider.swift */; };
+		7614C6792994F81100C8DFE5 /* PREnrty.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C66B2994E10300C8DFE5 /* PREnrty.swift */; };
+		7614C67A2994F81400C8DFE5 /* PRWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C65F2994DF8C00C8DFE5 /* PRWidget.swift */; };
+		7614C67B2995BC8000C8DFE5 /* PREntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C6712994E13400C8DFE5 /* PREntryView.swift */; };
+		7614C67C2995BCA100C8DFE5 /* GitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C6752994E1FA00C8DFE5 /* GitModel.swift */; };
 		762222A3296FC2FE00E9D0BC /* SharedFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762222A2296FC2FE00E9D0BC /* SharedFunction.swift */; };
 		762222A4296FC2FE00E9D0BC /* SharedFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762222A2296FC2FE00E9D0BC /* SharedFunction.swift */; };
 		76290AFE2947FA5C0015F41B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76290AFD2947FA5C0015F41B /* ContentView.swift */; };
@@ -506,8 +511,12 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				7614C6792994F81100C8DFE5 /* PREnrty.swift in Sources */,
 				7614C65E2994DF8C00C8DFE5 /* PRWidgetBundle.swift in Sources */,
+				7614C67B2995BC8000C8DFE5 /* PREntryView.swift in Sources */,
 				7614C6602994DF8C00C8DFE5 /* PRWidget.swift in Sources */,
+				7614C67C2995BCA100C8DFE5 /* GitModel.swift in Sources */,
+				7614C6782994F80E00C8DFE5 /* PRProvider.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -530,6 +539,7 @@
 				76CAD169296E81EC00159CF4 /* CodeGenerator.swift in Sources */,
 				7614C6762994E1FA00C8DFE5 /* GitModel.swift in Sources */,
 				763EE8E029484CEA007420AB /* WidgetsApp.swift in Sources */,
+				7614C67A2994F81400C8DFE5 /* PRWidget.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};

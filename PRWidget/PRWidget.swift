@@ -13,7 +13,7 @@ struct PRWidget: Widget {
 
     var body: some WidgetConfiguration {
         StaticConfiguration(kind: kind, provider: PRProvider()) { entry in
-            PRWidgetEntryView(entry: entry)
+            PREntryView(entry: entry)
         }
         .configurationDisplayName("Commit List Widget")
         .description("Git Commit 내역을 볼 수 있는 위젯")
