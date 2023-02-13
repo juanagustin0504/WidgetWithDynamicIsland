@@ -39,7 +39,7 @@ struct PREntryView: View {
 }
 
 struct PRView: View {
-    let pr: GitModel.Response.GitData
+    let pr: GitResponse
     
     var body: some View {
         VStack(alignment: .leading) {

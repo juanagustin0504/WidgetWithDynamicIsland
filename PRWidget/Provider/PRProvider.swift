@@ -10,7 +10,7 @@ import WidgetKit
 
 struct PRProvider: TimelineProvider {
     typealias Entry = PREntry
-    typealias Git = GitModel.Response.GitData
+    typealias Git = GitResponse
     
     func placeholder(in context: Context) -> PREntry {
         PREntry(date: Date(), prList: [])
@@ -34,7 +34,7 @@ struct PRProvider: TimelineProvider {
                 return
             }
             
-            guard let responseObject = try? JSONDecoder().decode(Git.self, from: data) else {
+            guard let responseObject = try? JSONDecoder().decode([GitResponse].self, from: data) else {
                 
                 let prList = Git(commit: Git.Commit(author:
                                         Git.Commit.Author(name: "데이터",
@@ -49,7 +49,7 @@ struct PRProvider: TimelineProvider {
                 return
             }
             
-            let entry = Entry(date: currentDate, prList: [responseObject])
+            let entry = Entry(date: currentDate, prList: responseObject)
             let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
             completion(timeline)
         }.resume()

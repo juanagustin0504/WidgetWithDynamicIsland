@@ -9,5 +9,5 @@ import WidgetKit
 
 struct PREntry: TimelineEntry {
     var date: Date = Date()
-    let prList: [GitModel.Response.GitData]
+    let prList: [GitResponse]
 }

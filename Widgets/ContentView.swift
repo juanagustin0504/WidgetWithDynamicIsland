@@ -11,25 +11,30 @@ import ActivityKit
 
 struct ContentView: View {
     
-    typealias Git = GitModel.Response.GitData
+    typealias Git = GitResponse
+    
+    @State private var git: [Git] = []
+    @State private var author: String = "Start"
     
     var body: some View {
         VStack {
-            Button("Start") {
+            Button(author) {
                 
 //                let _ = SharedFunction.shared.setUserDefaultsValue("♡", forKey: "heart")
                 
                 let url = URL(string: "https://api.github.com/repos/juanagustin0504/WidgetWithDynamicIsland/commits")!
-                
-                var request = URLRequest(url: url)
-                request.httpMethod = "GET"
-                
-                URLSession.shared.dataTask(with: request) { (data, response, error) in
+
+                let request = URLRequest(url: url)
+
+                URLSession.shared.dataTask(with: request) { (data, _, _) in
                     guard let data = data else {
                         return
                     }
-                    
-                    guard let responseObject = try? JSONDecoder().decode(Git.self, from: data) else {
+
+                    let decoder = JSONDecoder()
+                    decoder.dateDecodingStrategy = .iso8601
+
+                    guard let responseObject = try? decoder.decode([GitResponse].self, from: data) else {
                         print("Hello")
                         let prList = Git(commit: Git.Commit(author:
                                                 Git.Commit.Author(name: "데이터",
@@ -37,13 +42,29 @@ struct ContentView: View {
                                                                   date: "가져오기"),
                                                             message: "데이터 변환에 실패하였습니다.",
                                                             url: "실패"))
-                        
+                        print(prList)
+
                         return
                     }
-                    
+
                     print(responseObject)
-                    
+                    self.git = responseObject
+                    self.author = responseObject[0].commit.author.name
                 }.resume()
+                
+//                let network = Network()
+//
+//                let urlString = "https://api.github.com/repos/juanagustin0504/WidgetWithDynamicIsland/commits"
+//                network.fetch(url: urlString) { result in
+//                    switch result {
+//                    case .success(let responseObj):
+//                        guard let resObj = responseObj as? [GitResponse] else { return }
+//                        print(resObj)
+//
+//                    case .failure(let error):
+//                        print(error.localizedDescription)
+//                    }
+//                }
                 
                 
                 let dynamicIslandWidgetAttributes = DynamicIslandWidgetAttributes(name: "test")
@@ -59,6 +80,12 @@ struct ContentView: View {
                     print(error)
                 }
             }
+            VStack {
+                ForEach(0..<git.count, id: \.self) { i in
+                    Text(git[i].commit.message)
+                }
+            }
+            
             
         }
     }
