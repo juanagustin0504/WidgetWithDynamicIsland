@@ -26,9 +26,9 @@ struct PRProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<PREntry>) -> Void) {
         let currentDate = Date()
         // 30분마다 refresh 하겠음
-        let refreshDate = Calendar.current.date(byAdding: .minute, value: 30, to: currentDate)!
+        let refreshDate = Calendar.current.date(byAdding: .second, value: 30, to: currentDate)!
         
-        let git_url = URL(string: "https://api.github.com/juanagustin0504/WidgetWithDynamicIsland/commits")!
+        let git_url = URL(string: "https://api.github.com/repos/juanagustin0504/WidgetWithDynamicIsland/commits")!
         URLSession.shared.dataTask(with: URLRequest(url: git_url)) { (data, response, error) in
             guard let data = data else {
                 return
@@ -38,10 +38,10 @@ struct PRProvider: TimelineProvider {
                 
                 let prList = Git(commit: Git.Commit(author:
                                         Git.Commit.Author(name: "데이터",
-                                                          email: "가져오기",
-                                                          date: "실패"),
+                                                          email: "moon-john@naver.com",
+                                                          date: "가져오기 실패"),
                                                     message: "데이터 변환에 실패하였습니다.",
-                                                    url: ""))
+                                                    url: "naver.com"))
                 let entry = Entry(date: currentDate,
                                   prList: [prList])
                 let timeline = Timeline(entries: [entry], policy: .after(refreshDate))

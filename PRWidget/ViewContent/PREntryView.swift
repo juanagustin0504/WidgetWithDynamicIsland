@@ -44,7 +44,7 @@ struct PRView: View {
     var body: some View {
         VStack(alignment: .leading) {
             Text(pr.commit.message)
-                .font(.system(size: 18, weight: .semibold))
+                .font(.system(size: 12, weight: .semibold))
                 .foregroundColor(.black)
             
             Spacer()
@@ -52,13 +52,13 @@ struct PRView: View {
             
             HStack {
                 Text(pr.commit.author.name)
-                    .font(.system(size: 14, weight: .regular))
+                    .font(.system(size: 10, weight: .regular))
                     .foregroundColor(.gray)
                 
                 Divider()
                 
                 Text(pr.commit.author.date)
-                    .font(.system(size: 14, weight: .regular))
+                    .font(.system(size: 10, weight: .regular))
                     .foregroundColor(.gray)
             }.frame(height: 20)
         }
