@@ -7,54 +7,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "4D23831A-7BF3-4862-863F-AA33A25B8672"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DynamicIslandWidget/DynamicIslandWidgetLiveActivity.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "4D23831A-7BF3-4862-863F-AA33A25B8672 - dff04ad38b095c6e"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; WidgetKit.DynamicIslandExpandedContent&lt;&lt;&lt;opaque return type of static WidgetKit.DynamicIslandExpandedContentBuilder.buildPartialBlock&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: SwiftUI.View, &#x3c4;_0_1: SwiftUI.View&gt;(accumulated: WidgetKit.DynamicIslandExpandedContent&lt;&#x3c4;_0_0&gt;, next: WidgetKit.DynamicIslandExpandedRegion&lt;&#x3c4;_0_1&gt;) -&gt; WidgetKit.DynamicIslandExpandedContent&lt;some&gt;&gt;&gt;.0&gt; in closure #2 (WidgetKit.ActivityViewContext&lt;Widgets.DynamicIslandWidgetAttributes&gt;) -&gt; WidgetKit.DynamicIsland in Widgets.DynamicIslandWidgetLiveActivity.body.getter : some"
-                  moduleName = "Widgets"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/webcash/Desktop/Projects/Testing/Widgets/DynamicIslandWidget/DynamicIslandWidgetLiveActivity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "47"
-                  endingLineNumber = "47"
-                  offsetFromSymbolStart = "515">
-               </Location>
-               <Location
-                  uuid = "4D23831A-7BF3-4862-863F-AA33A25B8672 - d24b0ff0dd296f9a"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.Image in closure #1 () -&gt; WidgetKit.DynamicIslandExpandedContent&lt;&lt;&lt;opaque return type of static WidgetKit.DynamicIslandExpandedContentBuilder.buildPartialBlock&lt;&#x3c4;_0_0, &#x3c4;_0_1 where &#x3c4;_0_0: SwiftUI.View, &#x3c4;_0_1: SwiftUI.View&gt;(accumulated: WidgetKit.DynamicIslandExpandedContent&lt;&#x3c4;_0_0&gt;, next: WidgetKit.DynamicIslandExpandedRegion&lt;&#x3c4;_0_1&gt;) -&gt; WidgetKit.DynamicIslandExpandedContent&lt;some&gt;&gt;&gt;.0&gt; in closure #2 (WidgetKit.ActivityViewContext&lt;Widgets.DynamicIslandWidgetAttributes&gt;) -&gt; WidgetKit.DynamicIsland in Widgets.DynamicIslandWidgetLiveActivity.body.getter : some"
-                  moduleName = "Widgets"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/webcash/Desktop/Projects/Testing/Widgets/DynamicIslandWidget/DynamicIslandWidgetLiveActivity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "48"
-                  endingLineNumber = "48"
-                  offsetFromSymbolStart = "28">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "8F29195E-44E8-4FB5-8A5B-364F2774FC45"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -87,54 +39,6 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "09635349-A72A-48FA-883A-109D42F34EF4"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "DynamicIslandWidget/DynamicIslandWidgetLiveActivity.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "36"
-            endingLineNumber = "36"
-            landmarkName = "body"
-            landmarkType = "24">
-            <Locations>
-               <Location
-                  uuid = "09635349-A72A-48FA-883A-109D42F34EF4 - 42250e10d07fadf8"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Color, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in closure #1 (WidgetKit.ActivityViewContext&lt;Widgets.DynamicIslandWidgetAttributes&gt;) -&gt; SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Color, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt; in Widgets.DynamicIslandWidgetLiveActivity.body.getter : some"
-                  moduleName = "Widgets"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/webcash/Desktop/Projects/Testing/Widgets/DynamicIslandWidget/DynamicIslandWidgetLiveActivity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "521">
-               </Location>
-               <Location
-                  uuid = "09635349-A72A-48FA-883A-109D42F34EF4 - 20c98413380f7931"
-                  shouldBeEnabled = "Yes"
-                  ignoreCount = "0"
-                  continueAfterRunningActions = "No"
-                  symbolName = "closure #1 () -&gt; SwiftUI.TupleView&lt;(&lt;&lt;opaque return type of SwiftUI.View.lineLimit(Swift.Optional&lt;Swift.Int&gt;) -&gt; some&gt;&gt;.0, SwiftUI.Image, SwiftUI.Image)&gt; in closure #1 () -&gt; SwiftUI.TupleView&lt;(SwiftUI.Color, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt; in closure #1 (WidgetKit.ActivityViewContext&lt;Widgets.DynamicIslandWidgetAttributes&gt;) -&gt; SwiftUI.ZStack&lt;SwiftUI.TupleView&lt;(SwiftUI.Color, &lt;&lt;opaque return type of SwiftUI.View.padding(SwiftUI.Edge.Set, Swift.Optional&lt;CoreGraphics.CGFloat&gt;) -&gt; some&gt;&gt;.0)&gt;&gt; in Widgets.DynamicIslandWidgetLiveActivity.body.getter : some"
-                  moduleName = "Widgets"
-                  usesParentBreakpointCondition = "Yes"
-                  urlString = "file:///Users/webcash/Desktop/Projects/Testing/Widgets/DynamicIslandWidget/DynamicIslandWidgetLiveActivity.swift"
-                  startingColumnNumber = "9223372036854775807"
-                  endingColumnNumber = "9223372036854775807"
-                  startingLineNumber = "40"
-                  endingLineNumber = "40"
-                  offsetFromSymbolStart = "1453">
-               </Location>
-            </Locations>
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
             uuid = "25A8A441-3FA8-43C6-AC64-1C92BD4CB96F"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
@@ -151,47 +55,15 @@
       <BreakpointProxy
          BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
          <BreakpointContent
-            uuid = "EC3EC8FE-3B18-482D-A8F1-714F3443C2F7"
+            uuid = "117833C3-E098-4188-8282-7130B940B993"
             shouldBeEnabled = "Yes"
             ignoreCount = "0"
             continueAfterRunningActions = "No"
-            filePath = "PRWidget/Provider/PRProvider.swift"
+            filePath = "Widgets/WidgetsApp.swift"
             startingColumnNumber = "9223372036854775807"
             endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "52"
-            endingLineNumber = "52"
-            landmarkName = "getTimeline(in:completion:)"
-            landmarkType = "7">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "A29BA9B5-FBA0-4B5C-A94E-98C2EF70B671"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PRWidget/ViewContent/PREntryView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "32"
-            endingLineNumber = "32"
-            landmarkName = "body"
-            landmarkType = "24">
-         </BreakpointContent>
-      </BreakpointProxy>
-      <BreakpointProxy
-         BreakpointExtensionID = "Xcode.Breakpoint.FileBreakpoint">
-         <BreakpointContent
-            uuid = "6B34939E-679A-48C8-8479-0A98B7E5813C"
-            shouldBeEnabled = "Yes"
-            ignoreCount = "0"
-            continueAfterRunningActions = "No"
-            filePath = "PRWidget/ViewContent/PREntryView.swift"
-            startingColumnNumber = "9223372036854775807"
-            endingColumnNumber = "9223372036854775807"
-            startingLineNumber = "47"
-            endingLineNumber = "47"
+            startingLineNumber = "16"
+            endingLineNumber = "16"
             landmarkName = "body"
             landmarkType = "24">
          </BreakpointContent>
