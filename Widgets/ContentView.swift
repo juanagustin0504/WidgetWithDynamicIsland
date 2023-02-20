@@ -8,6 +8,7 @@
 import UIKit
 import SwiftUI
 import ActivityKit
+import WidgetKit
 
 struct ContentView: View {
     
@@ -18,6 +19,9 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            Button("위젯 새로고침") {
+                WidgetCenter.shared.reloadAllTimelines()
+            }
             Button(author) {
                 
 //                let _ = SharedFunction.shared.setUserDefaultsValue("♡", forKey: "heart")
@@ -30,7 +34,7 @@ struct ContentView: View {
                     guard let data = data else {
                         return
                     }
-
+                    
                     let decoder = JSONDecoder()
                     decoder.dateDecodingStrategy = .iso8601
 

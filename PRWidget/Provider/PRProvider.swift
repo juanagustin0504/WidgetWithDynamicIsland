@@ -26,7 +26,7 @@ struct PRProvider: TimelineProvider {
     func getTimeline(in context: Context, completion: @escaping (Timeline<PREntry>) -> Void) {
         let currentDate = Date()
         // 30분마다 refresh 하겠음
-        let refreshDate = Calendar.current.date(byAdding: .second, value: 30, to: currentDate)!
+        let refreshDate = Calendar.current.date(byAdding: .minute, value: 30, to: currentDate)!
         
         let git_url = URL(string: "https://api.github.com/repos/juanagustin0504/WidgetWithDynamicIsland/commits")!
         URLSession.shared.dataTask(with: URLRequest(url: git_url)) { (data, response, error) in
