@@ -20,7 +20,7 @@ struct ContentView: View {
     var body: some View {
         VStack {
             Button("위젯 새로고침") {
-                WidgetCenter.shared.reloadAllTimelines()
+                SmartWidget.shared.reloadAllWidgets()
             }
             Button(author) {
                 
