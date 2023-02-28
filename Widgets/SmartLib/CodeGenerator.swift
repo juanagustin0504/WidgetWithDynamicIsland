@@ -7,7 +7,7 @@
 
 import UIKit
 
-enum CodeType {
+public enum CodeType {
     case BARCODE
     case QR
 }
@@ -51,7 +51,6 @@ class CodeGenerator {
             let colored = outputImg.applyingFilter("CIFalseColor", parameters: colorParameters)
             let image = UIImage(ciImage: colored)
             let dataFromImage = image.jpegData(compressionQuality: 0.001)
-            UserDefaults.standard.set(dataFromImage!, forKey: "qr_image_data")
             return dataFromImage
         } else {
             let dataFromImage = UIImage(ciImage: outputImg).jpegData(compressionQuality: 1.0)

@@ -25,6 +25,7 @@ struct PREntryView: View {
     @ViewBuilder
     var body: some View {
         VStack(alignment: .leading) {
+            // UITableView 처럼 사용
             ForEach(0..<min(maxCount, entry.prList.count), id: \.self) { index in
                 let pr = entry.prList[index]
                 let url = URL(string: "widget://pr?url=\(pr.commit.url)")!

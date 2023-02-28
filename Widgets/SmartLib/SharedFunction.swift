@@ -6,13 +6,16 @@
 //
 
 import Foundation
+import UIKit
 
 struct SharedFunction {
     
-    static let shared = SharedFunction()
+    static var shared = SharedFunction()
+    
+    var cookies : [HTTPCookie] = []
     
     func setUserDefaultsValue(_ value: String, forKey: String) {
-        UserDefaults.standard.set(value, forKey: forKey)
+        UserDefaults.shared.set(value, forKey: forKey)
     }
 }
 
@@ -52,5 +55,30 @@ extension Data {
             return nil
         }
         return responseObject
+    }
+}
+
+extension UIImage {
+    func resize(newWidth: CGFloat) -> UIImage {
+        let scale = newWidth / self.size.width
+        let newHeight = self.size.height * scale
+
+        let size = CGSize(width: newWidth, height: newHeight)
+        let render = UIGraphicsImageRenderer(size: size)
+        let renderImage = render.image { context in
+            self.draw(in: CGRect(origin: .zero, size: size))
+        }
+        
+        print("화면 배율: \(UIScreen.main.scale)")// 배수
+        print("origin: \(self), resize: \(renderImage)")
+        print(renderImage)
+        return renderImage
+    }
+}
+
+extension UserDefaults {
+    static var shared: UserDefaults {
+        let appGroupId = "group.com.eunjin.githubprviewer"
+        return UserDefaults(suiteName: appGroupId)!
     }
 }

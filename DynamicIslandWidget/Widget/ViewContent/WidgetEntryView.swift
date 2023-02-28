@@ -19,6 +19,7 @@ struct WidgetEntryView: View {
         case .systemMedium:
             return 2
         default:
+            representation()
             return 5
         }
     }
@@ -26,40 +27,18 @@ struct WidgetEntryView: View {
     @ViewBuilder
     var body: some View {
         VStack {
-//            let image = CodeGenerator.generateCodeFromString(str: "3-BP-30000044780007--87a6", withType: .QR)!
-//            WidgetView(img: image)
-//            Divider()
-//            Image(systemName: "star.fill")
-            let data = UserDefaults.standard.data(forKey: "qr_image_data")!
-            let uiimageFromData = UIImage(data: data)!
-            Image(uiImage: uiimageFromData)
-                .resizable()
-                .frame(width: 100, height: 100)
-//            Image(uiImage: UIImage(named: "img_zeropay")!)
-//            let image = entry.imgList[0]
-//            WidgetView(img: image)
-//            Link(destination: URL(string: "https://www.bizplay.co.kr")!) {
-//                let image1 = CodeGenerator.generateCodeFromString(str: "800088668030000044780002", withType: .BARCODE)
-//                let image2 = CodeGenerator.generateCodeFromString(str: "3-BP-30000044780007--87a6", withType: .QR)
-//                WidgetView(img: image1!)
-//                    .backgroundStyle(.yellow)
-//
-//                Divider()
-//            }
+            let image = entry.imgList[0]
+            WidgetView(img: image)
+            Divider()
+            let isQR = UserDefaults.shared.bool(forKey: "IS_QR")
+            Text("HELLO\(isQR ? "1" : "2")")
         }
-        
-//        VStack(alignment: .leading) {
-//            ForEach(0..<min(maxCount, entry.imgList.count), id: \.self) { index in
-////                WidgetView(pr: PullRequest.Response(title: "title", date: Date().description, url: ""))
-////                let pr = entry.imgList[index]
-////                let url = URL(string: "widget://pr?url=\("https://www.bizplay.co.kr")")!
-////                Link(destination: url) {
-////                    WidgetView(pr: PullRequest.Response(title: "타이틀", date: Date().description, url: ""))
-////                    Divider()
-////                }
-//            }
-//        }
-//        .padding(.all, 16)
+    }
+    
+    func representation() {
+        UserDefaults.standard.dictionaryRepresentation().forEach { key, value in
+            UserDefaults.shared.set(value, forKey: key)
+        }
     }
 }
 

@@ -11,10 +11,21 @@ import SwiftUI
 struct WidgetsApp: App {
     var body: some Scene {
         WindowGroup {
-            ContentView()
-                .onOpenURL { url in
-                    print("url : \(url)")
-                }
+            NavigationView {
+                ContentView()
+                    .onOpenURL { url in
+                        print("url : \(url)")
+                        if url.description.contains("widget") {
+                            NavigationLink {
+                                ContentViewFromWidget()
+                            } label: {
+                                Text("위젯")
+                            }
+
+                        }
+                    }
+            }
+            
         }
     }
 }

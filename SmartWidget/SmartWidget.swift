@@ -6,6 +6,7 @@
 //
 
 import WidgetKit
+import UIKit
 
 class SmartWidget {
     public static var shared = SmartWidget()
@@ -15,7 +16,7 @@ class SmartWidget {
         WidgetCenter.shared.reloadAllTimelines()
     }
     
-    // 특정 위젯 새로고침
+    /// 특정 위젯 새로고침
     internal func reloadWidget(ofKind: String) {
         WidgetCenter.shared.reloadTimelines(ofKind: ofKind)
     }

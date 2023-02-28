@@ -31,7 +31,7 @@ struct DynamicIslandWidgetLiveActivity: Widget {
 //                        .lineLimit(1)
 //                    Image(systemName: "heart")
 //                    Image(systemName: "star")
-//                    let imageData = UserDefaults.standard.data(forKey: "qr_image_data")
+//                    let imageData = UserDefaults.shared.data(forKey: "qr_image_data")
 //                    let uiimage = UIImage(data: imageData!)!
                     let testImage = UIImage(named: "img_zeropay")!
                     Image(uiImage: testImage)
@@ -66,7 +66,7 @@ struct DynamicIslandWidgetLiveActivity: Widget {
             } minimal: {
                 VStack {
                     Text("☆")
-//                    let imageData = UserDefaults.standard.data(forKey: "qr_image_data")
+//                    let imageData = UserDefaults.shared.data(forKey: "qr_image_data")
 //                    let uiimage = UIImage(data: imageData!)!
 //                    let testImage = UIImage(named: "img_zeropay")!
 //                    Image(uiImage: testImage)
