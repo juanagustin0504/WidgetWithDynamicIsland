@@ -50,7 +50,7 @@ struct WidgetProvider: TimelineProvider {
         } else {
             guard let barImageData = userDefaults.data(forKey: "BARCODE_IMAGE_DATA") else { return image }
             let barImage = UIImage(data: barImageData)!
-            return barImage.resize(newWidth: 100)
+            return barImage.resize(newWidth: 200)
         }
     }
 }

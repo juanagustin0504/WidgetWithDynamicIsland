@@ -37,6 +37,7 @@ struct ContentView: View {
                 } else if status == "검증" {
                     self.requestCOM_000001()
                 } else if status == "코드 발급" {
+                    status = ""
                     self.requestZERO_000002()
                 }
                 
@@ -48,10 +49,12 @@ struct ContentView: View {
                 var imageData = Data()
                 if !isQR {
                     imageData = UserDefaults.shared.data(forKey: "QR_IMAGE_DATA")!
+                    self.img = UIImage(data: imageData)!.resize(newWidth: 100)
                 } else {
                     imageData = UserDefaults.shared.data(forKey: "BARCODE_IMAGE_DATA")!
+                    self.img = UIImage(data: imageData)!.resize(newWidth: 200)
                 }
-                self.img = UIImage(data: imageData)!.resize(newWidth: 200)
+                
                 SmartWidget.shared.reloadAllWidgets()
             }
             Button(author) {
@@ -181,13 +184,13 @@ struct ContentView: View {
                         UserDefaults.shared.set(resizingImgData, forKey: "BARCODE_IMAGE_DATA")
                     }
                     
-                    var imageData = Data()
                     if isQR {
-                        imageData = UserDefaults.shared.data(forKey: "QR_IMAGE_DATA")!
+                        let imageData = UserDefaults.shared.data(forKey: "QR_IMAGE_DATA")!
+                        self.img = UIImage(data: imageData)!.resize(newWidth: 100)
                     } else {
-                        imageData = UserDefaults.shared.data(forKey: "BARCODE_IMAGE_DATA")!
+                        let imageData = UserDefaults.shared.data(forKey: "BARCODE_IMAGE_DATA")!
+                        self.img = UIImage(data: imageData)!.resize(newWidth: 200)
                     }
-                    self.img = UIImage(data: imageData)!.resize(newWidth: 100)
                     
                     SmartWidget.shared.reloadAllWidgets()
                 }
