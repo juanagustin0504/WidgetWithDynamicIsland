@@ -15,15 +15,19 @@ struct WidgetsApp: App {
                 ContentView()
                     .onOpenURL { url in
                         print("url : \(url)")
-                        if url.description.contains("widget") {
-                            NavigationLink {
-                                ContentViewFromWidget()
-                            } label: {
-                                Text("위젯")
-                            }
-
-                        }
+                        
                     }
+//                    .onOpenURL { url in
+//                        print("url : \(url)")
+//                        if url.description.contains("widget") {
+//                            NavigationLink {
+//                                ContentViewFromWidget()
+//                            } label: {
+//                                Text("위젯")
+//                            }
+//
+//                        }
+//                    }
             }
             
         }

@@ -14,30 +14,10 @@ struct WidgetEntryView: View {
     
     @Environment(\.widgetFamily) var family
     
-    var maxCount: Int {
-        switch family {
-        case .systemMedium:
-            return 2
-        default:
-            representation()
-            return 5
-        }
-    }
-    
     @ViewBuilder
     var body: some View {
         VStack {
-            let image = entry.imgList[0]
-            WidgetView(img: image)
-            Divider()
-            let isQR = UserDefaults.shared.bool(forKey: "IS_QR")
-            Text("HELLO\(isQR ? "1" : "2")")
-        }
-    }
-    
-    func representation() {
-        UserDefaults.standard.dictionaryRepresentation().forEach { key, value in
-            UserDefaults.shared.set(value, forKey: key)
+            WidgetView(img: entry.imgList[0])
         }
     }
 }

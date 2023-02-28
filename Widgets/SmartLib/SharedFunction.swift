@@ -78,7 +78,7 @@ extension UIImage {
 
 extension UserDefaults {
     static var shared: UserDefaults {
-        let appGroupId = "group.com.eunjin.githubprviewer"
+        let appGroupId = "group.com.webcash.Widgets"
         return UserDefaults(suiteName: appGroupId)!
     }
 }

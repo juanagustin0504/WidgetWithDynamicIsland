@@ -13,18 +13,16 @@ struct WidgetProvider: TimelineProvider {
     
     func placeholder(in context: Context) -> WidgetEntry {
         let img1 = UIImage(named: "img_zeropay")!
-        let img2 = UIImage(named: "img_transfer")!
-        
-        let entry = Entry(pr: [], imgList: [img1, img2])
+
+        let entry = Entry(pr: [], imgList: [img1])
         
         return entry
     }
     
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
         let img1 = UIImage(named: "img_zeropay")!
-        let img2 = UIImage(named: "img_transfer")!
         
-        let entry = Entry(pr: [], imgList: [img1, img2])
+        let entry = Entry(pr: [], imgList: [img1])
         
         completion(entry)
     }
@@ -42,33 +40,17 @@ struct WidgetProvider: TimelineProvider {
     }
     
     func getCodeImage() -> UIImage {
-        // testing
-//        let condition = Int.random(in: 0...1) == 0
-//        var image: UIImage?
-//        if condition {
-//            let data = CodeGenerator.generateCodeFromString(str: "800088668030000044780002", withType: .BARCODE)!
-//            image = UIImage(data: data)
-//        } else {
-//            let data = CodeGenerator.generateCodeFromString(str: "3-BP-30000044780007--87a6", withType: .QR)!
-//            image = UIImage(data: data)
-//        }
-//
-//        guard let image = image else {
-//            return UIImage(systemName: "heart.fill")!
-//        }
-        
         let userDefaults = UserDefaults.shared
-        let image = UIImage(systemName: "heart")
-        let test = userDefaults.string(forKey: "TEST")
+        let image = UIImage(named: "img_zeropay")!
         
-        if userDefaults.bool(forKey: "IS_QR") || test == "TEST" {
-            guard let qrImageData = userDefaults.data(forKey: "QR_IMAGE_DATA") else { return image! }
+        if userDefaults.bool(forKey: "IS_QR") {
+            guard let qrImageData = userDefaults.data(forKey: "QR_IMAGE_DATA") else { return image }
             let qrImage = UIImage(data: qrImageData)!
-            return qrImage
+            return qrImage.resize(newWidth: 100)
         } else {
-            guard let barImageData = userDefaults.data(forKey: "BARCODE_IMAGE_DATA") else { return UIImage(systemName: "heart.fill")! }
+            guard let barImageData = userDefaults.data(forKey: "BARCODE_IMAGE_DATA") else { return image }
             let barImage = UIImage(data: barImageData)!
-            return barImage
+            return barImage.resize(newWidth: 100)
         }
     }
 }

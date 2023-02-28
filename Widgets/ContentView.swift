@@ -42,12 +42,16 @@ struct ContentView: View {
                 
             }
             Image(uiImage: self.img)
-            Button("위젯 새로고침") {
-                status = "로그인 토큰 발급"
+            Button("위젯 새로고침 & QR, Barcode 전환") {
                 let isQR = UserDefaults.shared.bool(forKey: "IS_QR")
                 UserDefaults.shared.set(!isQR, forKey: "IS_QR")
-                self.author = !isQR ? "true" : "false"
-                UserDefaults.shared.set("TEST", forKey: "TEST")
+                var imageData = Data()
+                if !isQR {
+                    imageData = UserDefaults.shared.data(forKey: "QR_IMAGE_DATA")!
+                } else {
+                    imageData = UserDefaults.shared.data(forKey: "BARCODE_IMAGE_DATA")!
+                }
+                self.img = UIImage(data: imageData)!.resize(newWidth: 200)
                 SmartWidget.shared.reloadAllWidgets()
             }
             Button(author) {
@@ -125,7 +129,7 @@ struct ContentView: View {
     func requestCOM_000012() {
         let requestBody = COM_000012.Request()
         
-        Network.shared.fetch(url: "https://zero.appplay.co.kr/COM_000012.jct", body: requestBody, responseType: COM_000012.Response.self) { result in
+        Network.shared.fetch(url: "http://dev.biz-zero.bizplay.co.kr/COM_000012.jct", body: requestBody, responseType: COM_000012.Response.self) { result in
             switch result {
             case .failure(let error):
                 print(#function + " \(error)에러요")
@@ -142,7 +146,7 @@ struct ContentView: View {
     
     func requestLGN_000001() {
         let requestBody = LGN_000001.Request(LGN_TOKEN: token)
-        Network.shared.fetch(url: "https://zero.appplay.co.kr/LGN_000001.jct", body: requestBody, responseType: LGN_000001.Response.self) { result in
+        Network.shared.fetch(url: "http://dev.biz-zero.bizplay.co.kr/LGN_000001.jct", body: requestBody, responseType: LGN_000001.Response.self) { result in
             switch result {
             case .failure(let error):
                 print(#function + " \(error) 에러남")
@@ -155,9 +159,9 @@ struct ContentView: View {
     }
     
     
-    // https://zero.appplay.co.kr/ZERO_000002.jct
+    // http://dev.biz-zero.bizplay.co.kr/ZERO_000002.jct
     func requestZERO_000002() {
-        Network.shared.fetch(url: "https://zero.appplay.co.kr/ZERO_000002.jct", body: ZERO_000002.Request(TRX_PWD_YN: ContentView.TRX_PWD), responseType: ZERO_000002.Response.self) { result in
+        Network.shared.fetch(url: "http://dev.biz-zero.bizplay.co.kr/ZERO_000002.jct", body: ZERO_000002.Request(TRX_PWD_YN: ContentView.TRX_PWD), responseType: ZERO_000002.Response.self) { result in
             switch result {
             case .failure(let error):
                 print(#function + " \(error) 에러남")
@@ -165,21 +169,25 @@ struct ContentView: View {
                 print(responseObj)
                 DispatchQueue.main.async {
                     self.status = "BARCODE = \(responseObj.BAR_CODE)\nQRCODE = \(responseObj.QR_CODE)\n"
-                    UserDefaults.shared.set(true, forKey: "IS_QR")
                     let isQR = UserDefaults.shared.bool(forKey: "IS_QR")
-                    if isQR {
-                        let imageData = CodeGenerator.generateCodeFromString(str: responseObj.QR_CODE, withType: .QR)!
-                        self.img = UIImage(data: imageData)!
-                        self.img = self.img.resize(newWidth: 100)
-                        let resizingImgData = self.img.pngData()!
+                    
+                    // 데이터 저장
+                    setData: do {
+                        var imageData = CodeGenerator.generateCodeFromString(str: responseObj.QR_CODE, withType: .QR)!
+                        var resizingImgData = UIImage(data: imageData)!.resize(newWidth: 100).pngData()!
                         UserDefaults.shared.set(resizingImgData, forKey: "QR_IMAGE_DATA")
-                    } else {
-                        let imageData = CodeGenerator.generateCodeFromString(str: responseObj.BAR_CODE, withType: .BARCODE)!
-                        self.img = UIImage(data: imageData)!
-                        self.img = self.img.resize(newWidth: 100)
-                        let resizingImgData = self.img.pngData()!
+                        imageData = CodeGenerator.generateCodeFromString(str: responseObj.BAR_CODE, withType: .BARCODE)!
+                        resizingImgData = UIImage(data: imageData)!.resize(newWidth: 100).pngData()!
                         UserDefaults.shared.set(resizingImgData, forKey: "BARCODE_IMAGE_DATA")
                     }
+                    
+                    var imageData = Data()
+                    if isQR {
+                        imageData = UserDefaults.shared.data(forKey: "QR_IMAGE_DATA")!
+                    } else {
+                        imageData = UserDefaults.shared.data(forKey: "BARCODE_IMAGE_DATA")!
+                    }
+                    self.img = UIImage(data: imageData)!.resize(newWidth: 100)
                     
                     SmartWidget.shared.reloadAllWidgets()
                 }
@@ -188,7 +196,7 @@ struct ContentView: View {
     }
     
     func requestCOM_000001() {
-        Network.shared.fetch(url: "https://zero.appplay.co.kr/COM_000001.jct", body: COM_000001.Request(), responseType: COM_000001.Response.self) { result in
+        Network.shared.fetch(url: "http://dev.biz-zero.bizplay.co.kr/COM_000001.jct", body: COM_000001.Request(), responseType: COM_000001.Response.self) { result in
             switch result {
             case .failure(let error):
                 print(#function + " \(error) 에러남")
@@ -210,10 +218,10 @@ struct ContentView: View {
     }
 }
 
-///https://zero.appplay.co.kr/COM_000012.jct
+///http://dev.biz-zero.bizplay.co.kr/COM_000012.jct
 struct COM_000012 {
     struct Request: Encodable {
-        let MEMB_CD = "8fe7076a8cf04c90058ef39a4e9aec4b4cfc0f000e030b8c91fa693084762eb4"
+        let MEMB_CD = "c247ec92f34a7e864e256c477b5368894cfc0f000e030b8c91fa693084762eb4"
     }
     
     struct Response: Decodable {
@@ -221,10 +229,10 @@ struct COM_000012 {
     }
 }
 
-///https://zero.appplay.co.kr/LGN_000001.jct
+///http://dev.biz-zero.bizplay.co.kr/LGN_000001.jct
 struct LGN_000001 {
     struct Request: Encodable {
-        let MEMB_CD: String = "8fe7076a8cf04c90058ef39a4e9aec4b4cfc0f000e030b8c91fa693084762eb4"
+        let MEMB_CD: String = "c247ec92f34a7e864e256c477b5368894cfc0f000e030b8c91fa693084762eb4"
         let PWD: String = ""
         let PUSH_TCK: String = "29be01053f4aec0cb66e5e3a1875056971e007482a40909483d829c869237994"
         let LGN_TOKEN: String
@@ -235,11 +243,11 @@ struct LGN_000001 {
     }
 }
 
-///https://zero.appplay.co.kr/ZERO_000002.jct
+///http://dev.biz-zero.bizplay.co.kr/ZERO_000002.jct
 struct ZERO_000002 {
     struct Request: Encodable {
         let USE_TP          : String = "PRVT"
-        let CARD_NO         : String = "110509028734"
+        let CARD_NO         : String = "48802852401011"
         let TRX_PWD_YN      : String
         let TGT_YN          : String = ""
         let TGT_ORDER_DT    : String = ""
@@ -247,7 +255,7 @@ struct ZERO_000002 {
         let MNY_CHRG_ACCT_NO: String = ""
         let TGT_ORDER_ID    : String = ""
         let MNY_CHRG_BANK_CD: String = ""
-        let BANK_CD         : String = "088"
+        let BANK_CD         : String = "003"
     }
     
     struct Response: Decodable {
