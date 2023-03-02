@@ -15,12 +15,14 @@ struct ContentView: View {
     typealias Git = GitResponse
     
     @State private var git: [Git] = []
-    @State private var author: String = "Start"
+    @State private var author: String = "커밋 내역 가져오기"
     @State private var status: String = "로그인"
+    @State private var refreshText = ""
     
     @State private var token: String = ""
     
-    @State var img = UIImage(named: "image_1_1.png")!
+    
+    @State var img = UIImage(named: "img_zeropay.png")!
     
     static var TRX_PWD = "61855b30564e62e821aa66adbd118b4b"
     
@@ -43,7 +45,7 @@ struct ContentView: View {
                 
             }
             Image(uiImage: self.img)
-            Button("위젯 새로고침 & QR, Barcode 전환") {
+            Button(refreshText) {
                 let isQR = UserDefaults.shared.bool(forKey: "IS_QR")
                 UserDefaults.shared.set(!isQR, forKey: "IS_QR")
                 var imageData = Data()
@@ -177,11 +179,9 @@ struct ContentView: View {
                     // 데이터 저장
                     setData: do {
                         var imageData = CodeGenerator.generateCodeFromString(str: responseObj.QR_CODE, withType: .QR)!
-                        var resizingImgData = UIImage(data: imageData)!.resize(newWidth: 100).pngData()!
-                        UserDefaults.shared.set(resizingImgData, forKey: "QR_IMAGE_DATA")
+                        UserDefaults.shared.set(imageData, forKey: "QR_IMAGE_DATA")
                         imageData = CodeGenerator.generateCodeFromString(str: responseObj.BAR_CODE, withType: .BARCODE)!
-                        resizingImgData = UIImage(data: imageData)!.resize(newWidth: 100).pngData()!
-                        UserDefaults.shared.set(resizingImgData, forKey: "BARCODE_IMAGE_DATA")
+                        UserDefaults.shared.set(imageData, forKey: "BARCODE_IMAGE_DATA")
                     }
                     
                     if isQR {
@@ -192,6 +192,7 @@ struct ContentView: View {
                         self.img = UIImage(data: imageData)!.resize(newWidth: 200)
                     }
                     
+                    self.refreshText = "위젯 새로고침 & QR, Barcode 전환"
                     SmartWidget.shared.reloadAllWidgets()
                 }
             }

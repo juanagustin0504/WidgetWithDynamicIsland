@@ -12,7 +12,7 @@ struct WidgetProvider: TimelineProvider {
     typealias Entry = WidgetEntry
     
     func placeholder(in context: Context) -> WidgetEntry {
-        let img1 = UIImage(named: "img_zeropay")!
+        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 100)
 
         let entry = Entry(pr: [], imgList: [img1])
         
@@ -20,7 +20,7 @@ struct WidgetProvider: TimelineProvider {
     }
     
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let img1 = UIImage(named: "img_zeropay")!
+        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 100)
         
         let entry = Entry(pr: [], imgList: [img1])
         

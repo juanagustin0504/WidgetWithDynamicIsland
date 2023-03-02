@@ -14,41 +14,35 @@ struct WidgetEntryView: View {
     
     @Environment(\.widgetFamily) var family
     
+    var dynamicSize: Float {
+        switch family {
+        case .systemSmall:
+            return 150
+        case .systemMedium:
+            if UserDefaults.shared.bool(forKey: "IS_QR") {
+                return 100
+            }
+            return 200
+        default:
+            return 300
+        }
+    }
+    
     @ViewBuilder
     var body: some View {
         VStack {
-            WidgetView(img: entry.imgList[0])
+            WidgetView(img: entry.imgList[0].resize(newWidth: CGFloat(dynamicSize)))
         }
     }
 }
 
 struct WidgetView: View {
-//    let pr: PullRequest.Response
     let img: UIImage
-    
     
     var body: some View {
         ZStack(alignment: .center) {
             Image(uiImage: img)
         }
-//        VStack(alignment: .leading) {
-//            Text(pr.title)
-//                .font(.system(size: 18, weight: .semibold))
-//                .foregroundColor(.black)
-//
-//            Spacer()
-//                .frame(height: 4)
-//
-//            HStack {
-//                Image(systemName: "star")
-//
-//                Divider()
-//
-//                Text(pr.date)
-//                    .font(.system(size: 14, weight: .regular))
-//                    .foregroundColor(.gray)
-//            }.frame(height: 20)
-//        }
     }
 }
 
