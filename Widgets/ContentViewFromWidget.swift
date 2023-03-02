@@ -16,31 +16,16 @@ struct ContentViewFromWidget: View {
             
             let userDefaults = UserDefaults.shared
             
-            let isQRCode = userDefaults.bool(forKey: "IS_QRCODE")
+            let isQR = userDefaults.bool(forKey: "IS_QR")
             
-            let uiImage = getQRorBarcodeImage(codeType: isQRCode ? .QR : .BARCODE)
-            let codeImage = Image(uiImage: uiImage)
-            
-            if isQRCode {
-                codeImage
-                    .frame(width: 200, height: 200)
+            if isQR {
+                let img = UIImage(data: userDefaults.data(forKey: "QR_IMAGE_DATA")!)!.resize(newWidth: 200)
+                Image(uiImage: img)
             } else {
-                codeImage
-                    .frame(width: 200, height: 100)
+                let img = UIImage(data: userDefaults.data(forKey: "BARCODE_IMAGE_DATA")!)!.resize(newWidth: 200)
+                Image(uiImage: img)
             }
         }
-    }
-    
-    func getQRorBarcodeImage(codeType: CodeType) -> UIImage {
-        let userDefaults = UserDefaults.shared
-        var data = Data()
-        if userDefaults.bool(forKey: "IS_QRCODE") {
-            data = userDefaults.data(forKey: "QR_IMAGE_DATA") ?? Data()
-        } else {
-            data = userDefaults.data(forKey: "BARCODE_IMAGE_DATA") ?? Data()
-        }
-        guard let uiImage = UIImage(data: data) else { return UIImage(named: "image_1_1")! }
-        return uiImage
     }
     
 }

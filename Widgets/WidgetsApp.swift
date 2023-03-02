@@ -9,27 +9,23 @@ import SwiftUI
 
 @main
 struct WidgetsApp: App {
+    @State var stack: [String] = []
     var body: some Scene {
         WindowGroup {
-            NavigationView {
+            NavigationStack(path: $stack) {
                 ContentView()
                     .onOpenURL { url in
-                        print("url : \(url)")
-                        
+                        print("url : \(url.description)")
+                        stack.append(url.description)
                     }
-//                    .onOpenURL { url in
-//                        print("url : \(url)")
-//                        if url.description.contains("widget") {
-//                            NavigationLink {
-//                                ContentViewFromWidget()
-//                            } label: {
-//                                Text("위젯")
-//                            }
-//
-//                        }
-//                    }
+                    .navigationDestination(for: String.self) { str in
+                        if str.contains("QR") || str.contains("BARCODE") {
+                            ContentViewFromWidget()
+                        } else {
+                            ContentViewFromDynamicIsland()
+                        }
+                    }
             }
-            
         }
     }
 }

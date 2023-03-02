@@ -31,7 +31,11 @@ struct WidgetEntryView: View {
     @ViewBuilder
     var body: some View {
         VStack {
-            WidgetView(img: entry.imgList[0].resize(newWidth: CGFloat(dynamicSize)))
+            let type = UserDefaults.shared.bool(forKey: "IS_QR") ? "QR" : "BARCODE"
+            let url = URL(string: "widget://\(type)")!
+            Link(destination: url) {
+                WidgetView(img: entry.imgList[0].resize(newWidth: CGFloat(dynamicSize)))
+            }
         }
     }
 }
