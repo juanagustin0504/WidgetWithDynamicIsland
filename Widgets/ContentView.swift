@@ -14,6 +14,7 @@ struct ContentView: View {
     
     typealias Git = GitResponse
     
+    
     @State private var git: [Git] = []
     @State private var author: String = "커밋 내역 가져오기"
     @State private var status: String = "로그인"
@@ -58,6 +59,17 @@ struct ContentView: View {
                 }
                 
                 SmartWidget.shared.reloadAllWidgets()
+//                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.ContentState(value: 6))
+            }
+            Button("Start Dynamic Island") {
+                SmartLiveManager.shared.start()
+            }
+            Button("Update Dynamic Island") {
+                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: ".", stateImg: ""))
+//                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.ContentState(value: 6))
+            }
+            Button("Stop Dynamic Island") {
+                SmartLiveManager.shared.stop()
             }
             Button(author) {
                 
@@ -92,34 +104,6 @@ struct ContentView: View {
                     self.git = responseObject
                     self.author = responseObject[0].commit.author.name
                 }.resume()
-                
-//                let network = Network()
-//
-//                let urlString = "https://api.github.com/repos/juanagustin0504/WidgetWithDynamicIsland/commits"
-//                network.fetch(url: urlString) { result in
-//                    switch result {
-//                    case .success(let responseObj):
-//                        guard let resObj = responseObj as? [GitResponse] else { return }
-//                        print(resObj)
-//
-//                    case .failure(let error):
-//                        print(error.localizedDescription)
-//                    }
-//                }
-                
-                
-                let dynamicIslandWidgetAttributes = DynamicIslandWidgetAttributes(name: "test")
-                let contentState = DynamicIslandWidgetAttributes.ContentState(value: 7)
-                
-                do {
-                    let activity = try Activity<DynamicIslandWidgetAttributes>.request(
-                        attributes: dynamicIslandWidgetAttributes,
-                        contentState: contentState
-                    )
-                    print(activity)
-                } catch {
-                    print(error)
-                }
             }
             VStack {
                 ForEach(0..<git.count, id: \.self) { i in
