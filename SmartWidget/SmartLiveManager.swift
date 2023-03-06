@@ -19,7 +19,7 @@ final class SmartLiveManager: ObservableObject {
     func start() {
         guard activity == nil else { return }
         let attributes = DynamicIslandWidgetAttributes(name: "SmartDynamicIsland")
-        let contentState = DynamicIslandWidgetAttributes.State(nowState: "Start", stateImg: "img_zeropay")
+        let contentState = DynamicIslandWidgetAttributes.State(nowState: "1", stateImg: "img_zeropay")
         
         do {
             let activity = try Activity<DynamicIslandWidgetAttributes>.request(
