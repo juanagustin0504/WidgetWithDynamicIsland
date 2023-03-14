@@ -11,22 +11,25 @@ import UIKit
 struct WidgetProvider: TimelineProvider {
     typealias Entry = WidgetEntry
     
+    /// 위젯 추가 시 보이는 placeholder
     func placeholder(in context: Context) -> WidgetEntry {
-        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 100)
+        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 50)
 
-        let entry = Entry(pr: [], imgList: [img1])
+        let entry = Entry(imgList: [img1])
         
         return entry
     }
     
+    /// 위젯 추가 화면에서 보이는 스냅샷
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 100)
+        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 50)
         
-        let entry = Entry(pr: [], imgList: [img1])
+        let entry = Entry(imgList: [img1])
         
         completion(entry)
     }
     
+    /// 첫 실행 및 새로고침 시 작동하는 timeline
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         let currentDate = Date()
         // 30초마다 refresh
@@ -34,7 +37,7 @@ struct WidgetProvider: TimelineProvider {
         
         let image = getCodeImage()
         
-        let entry = Entry(date: currentDate, pr: [], imgList: [image])
+        let entry = Entry(date: currentDate, imgList: [image])
         let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
         completion(timeline)
     }

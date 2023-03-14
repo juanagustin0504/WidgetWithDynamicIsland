@@ -49,13 +49,3 @@ struct WidgetView: View {
         }
     }
 }
-
-struct MyWidget_Previews: PreviewProvider {
-    static var previews: some View {
-//        DynamicIslandWidgetEntryView(entry: SimpleEntry(date: Date(), configuration: ConfigurationIntent(), texts: ["Hello"]))
-//            .previewContext(WidgetPreviewContext(family: .systemMedium))
-        
-        WidgetEntryView(entry: WidgetEntry(date: Date(), pr: [], imgList: []))
-            .previewContext(WidgetPreviewContext(family: .systemMedium))
-    }
-}

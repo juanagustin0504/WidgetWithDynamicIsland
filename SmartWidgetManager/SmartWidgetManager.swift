@@ -1,6 +1,6 @@
 //
-//  SmartWidget.swift
-//  SmartWidget
+//  SmartWidgetManager.swift
+//  SmartWidgetManager
 //
 //  Created by Webcash on 2023/02/20.
 //
@@ -8,8 +8,8 @@
 import WidgetKit
 import UIKit
 
-class SmartWidget {
-    public static var shared = SmartWidget()
+class SmartWidgetManager {
+    public static var shared = SmartWidgetManager()
     
     /// 모든 위젯 새로고침
     internal func reloadAllWidgets() {

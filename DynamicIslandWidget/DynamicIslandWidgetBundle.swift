@@ -11,8 +11,7 @@ import SwiftUI
 @main
 struct DynamicIslandWidgetBundle: WidgetBundle {
     var body: some Widget {
-//        DynamicIslandWidget()
-        MyWidget()
+        SmartWidget()
         DynamicIslandWidgetLiveActivity()
     }
 }

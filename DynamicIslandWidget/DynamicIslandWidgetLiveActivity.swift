@@ -46,8 +46,6 @@ struct DynamicIslandWidgetLiveActivity: Widget {
                 // various regions, like leading/trailing/center/bottom
                 DynamicIslandExpandedRegion(.center) {
                     let userDefaults = UserDefaults.shared
-//                    Image(uiImage: UIImage(data: userDefaults.data(forKey: "BARCODE_IMAGE_DATA")!)!.resize(newWidth: 350))
-//                    Image(uiImage: UIImage(data: userDefaults.data(forKey: "QR_IMAGE_DATA")!)!.resize(newWidth: 100))
                     let isQR = userDefaults.bool(forKey: "IS_QR")
                     
                     if isQR {
@@ -57,17 +55,21 @@ struct DynamicIslandWidgetLiveActivity: Widget {
                     }
                 }
                 DynamicIslandExpandedRegion(.leading) {
-                    Image(uiImage: UIImage(named: "img_zeropay")!.resize(newWidth: 100))
+                    // Leading
                 }
                 DynamicIslandExpandedRegion(.trailing) {
-//                    Image(uiImage: UIImage(named: "img_zeroapy")!.resize(newWidth: 100))
+                    // Trailing
                 }
                 DynamicIslandExpandedRegion(.bottom) {
-//                    Image(uiImage: UIImage(data: UserDefaults.shared.data(forKey: "BARCODE_IMAGE_DATA")!)!.resize(newWidth: 350))
-//                    Image(uiImage: UIImage(systemName: "star.fill")!)
+                    // Bottom
                 }
             } compactLeading: {
-                Image(uiImage: UIImage(named: "img_zeropay")!.resize(newWidth: 25))
+                if context.state.stateImg == "" {
+                    Image(uiImage: UIImage(named: "img_zeropay")!.resize(newWidth: 25))
+                } else {
+                    Image(systemName: "star")
+                }
+                
             }
             compactTrailing: {
                 if UserDefaults.shared.bool(forKey: "IS_QR") {

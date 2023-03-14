@@ -44,6 +44,11 @@ struct ContentView: View {
                     self.requestZERO_000002()
                 }
                 
+                var bgTask = UIBackgroundTaskIdentifier(rawValue: 1324)
+                bgTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
+                    UIApplication.shared.endBackgroundTask(bgTask)
+                })
+                
             }
             Image(uiImage: self.img)
             Button(refreshText) {
@@ -58,59 +63,18 @@ struct ContentView: View {
                     self.img = UIImage(data: imageData)!.resize(newWidth: 200)
                 }
                 
-                SmartWidget.shared.reloadAllWidgets()
-//                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.ContentState(value: 6))
+                SmartWidgetManager.shared.reloadAllWidgets()
+                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: "Update", stateImg: ""))
             }
             Button("Start Dynamic Island") {
                 SmartLiveManager.shared.start()
             }
             Button("Update Dynamic Island") {
-                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: ".", stateImg: ""))
-//                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.ContentState(value: 6))
+                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: "update", stateImg: ""))
             }
             Button("Stop Dynamic Island") {
                 SmartLiveManager.shared.stop()
             }
-            Button(author) {
-                
-//                let _ = SharedFunction.shared.setUserDefaultsValue("♡", forKey: "heart")
-                
-                let url = URL(string: "https://api.github.com/repos/juanagustin0504/WidgetWithDynamicIsland/commits")!
-
-                let request = URLRequest(url: url)
-
-                URLSession.shared.dataTask(with: request) { (data, _, _) in
-                    guard let data = data else {
-                        return
-                    }
-                    
-                    let decoder = JSONDecoder()
-                    decoder.dateDecodingStrategy = .iso8601
-
-                    guard let responseObject = try? decoder.decode([GitResponse].self, from: data) else {
-                        print("Hello")
-                        let prList = Git(commit: Git.Commit(author:
-                                                Git.Commit.Author(name: "데이터",
-                                                                  email: "실패",
-                                                                  date: "가져오기"),
-                                                            message: "데이터 변환에 실패하였습니다.",
-                                                            url: "실패"))
-                        print(prList)
-
-                        return
-                    }
-
-                    print(responseObject)
-                    self.git = responseObject
-                    self.author = responseObject[0].commit.author.name
-                }.resume()
-            }
-            VStack {
-                ForEach(0..<git.count, id: \.self) { i in
-                    Text(git[i].commit.message)
-                }
-            }
-            
             
         }
     }
@@ -177,7 +141,7 @@ struct ContentView: View {
                     }
                     
                     self.refreshText = "위젯 새로고침 & QR, Barcode 전환"
-                    SmartWidget.shared.reloadAllWidgets()
+                    SmartWidgetManager.shared.reloadAllWidgets()
                 }
             }
         }
