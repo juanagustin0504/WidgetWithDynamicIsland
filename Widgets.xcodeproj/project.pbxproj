@@ -18,8 +18,6 @@
 		7614C71529A4916500C8DFE5 /* ContentViewFromWidget.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C71329A4916500C8DFE5 /* ContentViewFromWidget.swift */; };
 		7614C71929A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C71829A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift */; };
 		7614C71A29A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C71829A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift */; };
-		762222A3296FC2FE00E9D0BC /* SharedFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762222A2296FC2FE00E9D0BC /* SharedFunction.swift */; };
-		762222A4296FC2FE00E9D0BC /* SharedFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762222A2296FC2FE00E9D0BC /* SharedFunction.swift */; };
 		76290AFE2947FA5C0015F41B /* ContentView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76290AFD2947FA5C0015F41B /* ContentView.swift */; };
 		76290B002947FA5D0015F41B /* Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76290AFF2947FA5D0015F41B /* Assets.xcassets */; };
 		76290B032947FA5D0015F41B /* Preview Assets.xcassets in Resources */ = {isa = PBXBuildFile; fileRef = 76290B022947FA5D0015F41B /* Preview Assets.xcassets */; };
@@ -54,7 +52,10 @@
 		76D1373829B0709C001D0E3E /* SmartLiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1373629B0709C001D0E3E /* SmartLiveManager.swift */; };
 		76D1373929B0709C001D0E3E /* SmartLiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1373629B0709C001D0E3E /* SmartLiveManager.swift */; };
 		76D1373A29B07298001D0E3E /* DynamicIslandWidgetLiveActivity.swift in Sources */ = {isa = PBXBuildFile; fileRef = 763EE8EB29484D79007420AB /* DynamicIslandWidgetLiveActivity.swift */; };
-		76D1373B29B072D4001D0E3E /* SharedFunction.swift in Sources */ = {isa = PBXBuildFile; fileRef = 762222A2296FC2FE00E9D0BC /* SharedFunction.swift */; };
+		76D13B5329C1ACD8001D0E3E /* ImageFileManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B5229C1ACD8001D0E3E /* ImageFileManager.swift */; };
+		76D13B9629C1BF1D001D0E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9529C1BF1D001D0E3E /* Extension.swift */; };
+		76D13B9729C1BF1D001D0E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9529C1BF1D001D0E3E /* Extension.swift */; };
+		76D13B9929C1C1FC001D0E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9529C1BF1D001D0E3E /* Extension.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -132,7 +133,6 @@
 		7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWidgetManager.swift; sourceTree = "<group>"; };
 		7614C71329A4916500C8DFE5 /* ContentViewFromWidget.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewFromWidget.swift; sourceTree = "<group>"; };
 		7614C71829A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentViewFromDynamicIsland.swift; sourceTree = "<group>"; };
-		762222A2296FC2FE00E9D0BC /* SharedFunction.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SharedFunction.swift; sourceTree = "<group>"; };
 		76290AF82947FA5C0015F41B /* Widgets.app */ = {isa = PBXFileReference; explicitFileType = wrapper.application; includeInIndex = 0; path = Widgets.app; sourceTree = BUILT_PRODUCTS_DIR; };
 		76290AFB2947FA5C0015F41B /* WidgetsApp.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetsApp.swift; sourceTree = "<group>"; };
 		76290AFD2947FA5C0015F41B /* ContentView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ContentView.swift; sourceTree = "<group>"; };
@@ -161,6 +161,8 @@
 		76CAD164296E80C100159CF4 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		76CAD168296E81EC00159CF4 /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		76D1373629B0709C001D0E3E /* SmartLiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartLiveManager.swift; sourceTree = "<group>"; };
+		76D13B5229C1ACD8001D0E3E /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
+		76D13B9529C1BF1D001D0E3E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -201,6 +203,7 @@
 		7614C70529A347D500C8DFE5 /* SmartWidgetManager */ = {
 			isa = PBXGroup;
 			children = (
+				76D13B9529C1BF1D001D0E3E /* Extension.swift */,
 				7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */,
 				76D1373629B0709C001D0E3E /* SmartLiveManager.swift */,
 			);
@@ -240,6 +243,7 @@
 				76290B2129483A0C0015F41B /* Info.plist */,
 				76290AFB2947FA5C0015F41B /* WidgetsApp.swift */,
 				76290AFD2947FA5C0015F41B /* ContentView.swift */,
+				76D13B5229C1ACD8001D0E3E /* ImageFileManager.swift */,
 				7614C71329A4916500C8DFE5 /* ContentViewFromWidget.swift */,
 				7614C71829A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift */,
 				7614C67D2999CF1500C8DFE5 /* Network.swift */,
@@ -338,7 +342,6 @@
 			isa = PBXGroup;
 			children = (
 				76CAD168296E81EC00159CF4 /* CodeGenerator.swift */,
-				762222A2296FC2FE00E9D0BC /* SharedFunction.swift */,
 			);
 			path = SmartLib;
 			sourceTree = "<group>";
@@ -499,10 +502,10 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
-				76D1373B29B072D4001D0E3E /* SharedFunction.swift in Sources */,
 				7614C70729A347D500C8DFE5 /* SmartWidgetManager.swift in Sources */,
 				76D1373929B0709C001D0E3E /* SmartLiveManager.swift in Sources */,
 				76D1373A29B07298001D0E3E /* DynamicIslandWidgetLiveActivity.swift in Sources */,
+				76D13B9929C1C1FC001D0E3E /* Extension.swift in Sources */,
 			);
 			runOnlyForDeploymentPostprocessing = 0;
 		};
@@ -516,12 +519,13 @@
 				763EE8FB29484E43007420AB /* DynamicIslandWidgetLiveActivity.swift in Sources */,
 				76D1373729B0709C001D0E3E /* SmartLiveManager.swift in Sources */,
 				76CAD15B296E7ECE00159CF4 /* WidgetEntry.swift in Sources */,
-				762222A3296FC2FE00E9D0BC /* SharedFunction.swift in Sources */,
+				76D13B5329C1ACD8001D0E3E /* ImageFileManager.swift in Sources */,
 				76CAD152296E7E3C00159CF4 /* SmartWidget.swift in Sources */,
 				763EE8F429484D7A007420AB /* DynamicIslandWidget.intentdefinition in Sources */,
 				7614C71429A4916500C8DFE5 /* ContentViewFromWidget.swift in Sources */,
 				76CAD165296E80C100159CF4 /* PullRequest.swift in Sources */,
 				76CAD169296E81EC00159CF4 /* CodeGenerator.swift in Sources */,
+				76D13B9629C1BF1D001D0E3E /* Extension.swift in Sources */,
 				7614C6762994E1FA00C8DFE5 /* GitModel.swift in Sources */,
 				7614C71929A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift in Sources */,
 				7614C67E2999CF1600C8DFE5 /* Network.swift in Sources */,
@@ -544,6 +548,7 @@
 			isa = PBXSourcesBuildPhase;
 			buildActionMask = 2147483647;
 			files = (
+				76D13B9729C1BF1D001D0E3E /* Extension.swift in Sources */,
 				76CAD156296E7EA700159CF4 /* WidgetProvider.swift in Sources */,
 				7614C71529A4916500C8DFE5 /* ContentViewFromWidget.swift in Sources */,
 				76CAD15F296E7EE700159CF4 /* WidgetEntryView.swift in Sources */,
@@ -551,7 +556,6 @@
 				763EE8F329484D7A007420AB /* DynamicIslandWidget.intentdefinition in Sources */,
 				76D1373829B0709C001D0E3E /* SmartLiveManager.swift in Sources */,
 				76CAD15C296E7ECE00159CF4 /* WidgetEntry.swift in Sources */,
-				762222A4296FC2FE00E9D0BC /* SharedFunction.swift in Sources */,
 				76CAD153296E7E3C00159CF4 /* SmartWidget.swift in Sources */,
 				763EE8EA29484D79007420AB /* DynamicIslandWidgetBundle.swift in Sources */,
 				76CAD166296E80C100159CF4 /* PullRequest.swift in Sources */,
@@ -833,6 +837,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;
@@ -885,6 +890,7 @@
 				);
 				GENERATE_INFOPLIST_FILE = YES;
 				INFOPLIST_FILE = Widgets/Info.plist;
+				INFOPLIST_KEY_LSSupportsOpeningDocumentsInPlace = YES;
 				INFOPLIST_KEY_NSSupportsLiveActivities = YES;
 				INFOPLIST_KEY_UIApplicationSceneManifest_Generation = YES;
 				INFOPLIST_KEY_UIApplicationSupportsIndirectInputEvents = YES;

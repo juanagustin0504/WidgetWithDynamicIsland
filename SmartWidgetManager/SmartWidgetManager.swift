@@ -6,9 +6,8 @@
 //
 
 import WidgetKit
-import UIKit
 
-class SmartWidgetManager {
+open class SmartWidgetManager {
     public static var shared = SmartWidgetManager()
     
     /// 모든 위젯 새로고침

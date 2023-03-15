@@ -6,10 +6,12 @@
 //
 
 import SwiftUI
+import BackgroundTasks
 
 @main
 struct WidgetsApp: App {
     @State var stack: [String] = []
+    @Environment(\.scenePhase) private var phase
     var body: some Scene {
         WindowGroup {
             NavigationStack(path: $stack) {
@@ -27,5 +29,26 @@ struct WidgetsApp: App {
                     }
             }
         }
+        .onChange(of: phase) { newPhase in
+            switch newPhase {
+            case .background: scheduleAppRefresh()
+            default: break
+            }
+        }
+        .backgroundTask(.appRefresh("myapprefresh")) { sender in
+            print("sender ::::::: \(sender)\n")
+            SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.ContentState(nowState: "Update", stateImg: "star", time: 1))
+        }
+    }
+    
+    func scheduleAppRefresh() {
+        
+        let request = BGAppRefreshTaskRequest(identifier: "myapprefresh")
+        do {
+            try BGTaskScheduler.shared.submit(request)
+        } catch {
+            print(error.localizedDescription)
+        }
+        
     }
 }

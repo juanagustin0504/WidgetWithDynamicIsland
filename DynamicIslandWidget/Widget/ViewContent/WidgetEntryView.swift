@@ -34,7 +34,7 @@ struct WidgetEntryView: View {
             let type = UserDefaults.shared.bool(forKey: "IS_QR") ? "QR" : "BARCODE"
             let url = URL(string: "widget://\(type)")!
             Link(destination: url) {
-                WidgetView(img: entry.imgList[0].resize(newWidth: CGFloat(dynamicSize)))
+                WidgetView(img: entry.imgList.resize(newWidth: CGFloat(dynamicSize)))
             }
         }
     }

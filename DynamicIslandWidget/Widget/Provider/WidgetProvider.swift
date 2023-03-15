@@ -13,18 +13,18 @@ struct WidgetProvider: TimelineProvider {
     
     /// 위젯 추가 시 보이는 placeholder
     func placeholder(in context: Context) -> WidgetEntry {
-        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 50)
+        let img1 = UIImage(named: "qr")!.resize(newWidth: 50)
 
-        let entry = Entry(imgList: [img1])
+        let entry = Entry(imgList: img1)
         
         return entry
     }
     
     /// 위젯 추가 화면에서 보이는 스냅샷
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
-        let img1 = UIImage(named: "img_zeropay")!.resize(newWidth: 50)
+        let img1 = UIImage(named: "barcode")!.resize(newWidth: 50)
         
-        let entry = Entry(imgList: [img1])
+        let entry = Entry(imgList: img1)
         
         completion(entry)
     }
@@ -37,7 +37,7 @@ struct WidgetProvider: TimelineProvider {
         
         let image = getCodeImage()
         
-        let entry = Entry(date: currentDate, imgList: [image])
+        let entry = Entry(date: currentDate, imgList: image)
         let timeline = Timeline(entries: [entry], policy: .after(refreshDate))
         completion(timeline)
     }
@@ -47,11 +47,11 @@ struct WidgetProvider: TimelineProvider {
         let image = UIImage(named: "img_zeropay")!
         
         if userDefaults.bool(forKey: "IS_QR") {
-            guard let qrImageData = userDefaults.data(forKey: "QR_IMAGE_DATA") else { return image }
+            guard let qrImageData = userDefaults.data(forKey: "QR_IMAGE_DATA") else { return image.resize(newWidth: 50) }
             let qrImage = UIImage(data: qrImageData)!
             return qrImage.resize(newWidth: 100)
         } else {
-            guard let barImageData = userDefaults.data(forKey: "BARCODE_IMAGE_DATA") else { return image }
+            guard let barImageData = userDefaults.data(forKey: "BARCODE_IMAGE_DATA") else { return image.resize(newWidth: 50) }
             let barImage = UIImage(data: barImageData)!
             return barImage.resize(newWidth: 200)
         }

@@ -10,6 +10,6 @@ import UIKit
 
 struct WidgetEntry: TimelineEntry {
     var date: Date = Date()
-    let imgList: [UIImage]
+    let imgList: UIImage
 }
 

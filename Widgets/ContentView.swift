@@ -11,14 +11,13 @@ import ActivityKit
 import WidgetKit
 
 struct ContentView: View {
+        
+    let date = Date()
+    @State var timeRemaining : Int = 100
+    let timer = Timer.publish(every: 1, on: .main, in: .common).autoconnect()
     
-    typealias Git = GitResponse
-    
-    
-    @State private var git: [Git] = []
-    @State private var author: String = "커밋 내역 가져오기"
-    @State private var status: String = "로그인"
-    @State private var refreshText = ""
+    @State private var status: String = "test"
+    @State private var refreshText = "QR <-> Barcode 전환 및 위젯, D.I 새로고침"
     
     @State private var token: String = ""
     
@@ -42,12 +41,17 @@ struct ContentView: View {
                 } else if status == "코드 발급" {
                     status = ""
                     self.requestZERO_000002()
+                } else if status == "test" {
+                    
+                    UserDefaults.shared.set(true, forKey: "IS_QR")
+                    let qrImageData = UIImage(named: "qr")!.jpegData(compressionQuality: 1.0)
+                    UserDefaults.shared.set(qrImageData, forKey: "QR_IMAGE_DATA")
+                    let barcodeImageData = UIImage(named: "barcode")!.jpegData(compressionQuality: 1.0)
+                    UserDefaults.shared.set(barcodeImageData, forKey: "BARCODE_IMAGE_DATA")
+                    
+                    self.img = UIImage(data: qrImageData!)!.resize(newWidth: 100)
+                    
                 }
-                
-                var bgTask = UIBackgroundTaskIdentifier(rawValue: 1324)
-                bgTask = UIApplication.shared.beginBackgroundTask(expirationHandler: {
-                    UIApplication.shared.endBackgroundTask(bgTask)
-                })
                 
             }
             Image(uiImage: self.img)
@@ -64,19 +68,39 @@ struct ContentView: View {
                 }
                 
                 SmartWidgetManager.shared.reloadAllWidgets()
-                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: "Update", stateImg: ""))
+                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: "Update", stateImg: "", time: 60))
             }
             Button("Start Dynamic Island") {
                 SmartLiveManager.shared.start()
             }
-            Button("Update Dynamic Island") {
-                SmartLiveManager.shared.update(state: DynamicIslandWidgetAttributes.State(nowState: "update", stateImg: ""))
-            }
             Button("Stop Dynamic Island") {
                 SmartLiveManager.shared.stop()
             }
-            
+            ZStack {
+                Text(convertSecondsToTime(timeInSeconds:timeRemaining))
+                    .font(.system(size: 50))
+                    .onReceive(timer) { _ in
+                        timeRemaining -= 1
+                    }
+            }
+            .onAppear {
+                calcRemain()
+            }
         }
+    }
+    
+    func convertSecondsToTime(timeInSeconds: Int) -> String {
+        let hours = timeInSeconds / 3600
+        let minutes = (timeInSeconds - hours*3600) / 60
+        let seconds = timeInSeconds % 60
+        return String(format: "%02i:%02i:%02i", hours,minutes,seconds)
+    }
+    
+    func calcRemain() {
+        let calendar = Calendar.current
+        let targetTime : Date = calendar.date(byAdding: .second, value: 5, to: date, wrappingComponents: false) ?? Date()
+        let remainSeconds = Int(targetTime.timeIntervalSince(date))
+        self.timeRemaining = remainSeconds
     }
     
     func requestCOM_000012() {

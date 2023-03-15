@@ -8,7 +8,10 @@
 import SwiftUI
 import ActivityKit
 
-final class SmartLiveManager: ObservableObject {
+/**
+ 'DynamicIslandWidgetAttributes' -> '자신의 ActivityAttributes' 로 변경 후 사용
+ */
+open class SmartLiveManager: ObservableObject {
     
     static let shared = SmartLiveManager()
     
@@ -19,7 +22,7 @@ final class SmartLiveManager: ObservableObject {
     func start() {
         guard activity == nil else { return }
         let attributes = DynamicIslandWidgetAttributes(name: "SmartDynamicIsland")
-        let contentState = DynamicIslandWidgetAttributes.State(nowState: "1", stateImg: "")
+        let contentState = DynamicIslandWidgetAttributes.State(nowState: "Start", stateImg: "", time: 6000)
         
         do {
             let activity = try Activity<DynamicIslandWidgetAttributes>.request(
@@ -34,7 +37,7 @@ final class SmartLiveManager: ObservableObject {
     
     func update(state: DynamicIslandWidgetAttributes.ContentState) {
         Task {
-            let updateContentState = DynamicIslandWidgetAttributes.State(nowState: "Update", stateImg: "star")
+            let updateContentState = DynamicIslandWidgetAttributes.State(nowState: "Update", stateImg: "star", time: state.time)
             for activity in Activity<DynamicIslandWidgetAttributes>.activities {
                 await activity.update(using: updateContentState)
             }
