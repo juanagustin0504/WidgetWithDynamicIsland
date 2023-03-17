@@ -30,6 +30,7 @@ struct ContentView: View {
     
     var body: some View {
         VStack {
+            CustomDynamicProgressView()
             Button(status) {
                 // 로그인 토큰 발급 COM_000012
                 if status == "로그인 토큰 발급" {
@@ -76,31 +77,7 @@ struct ContentView: View {
             Button("Stop Dynamic Island") {
                 SmartLiveManager.shared.stop()
             }
-            ZStack {
-                Text(convertSecondsToTime(timeInSeconds:timeRemaining))
-                    .font(.system(size: 50))
-                    .onReceive(timer) { _ in
-                        timeRemaining -= 1
-                    }
-            }
-            .onAppear {
-                calcRemain()
-            }
         }
-    }
-    
-    func convertSecondsToTime(timeInSeconds: Int) -> String {
-        let hours = timeInSeconds / 3600
-        let minutes = (timeInSeconds - hours*3600) / 60
-        let seconds = timeInSeconds % 60
-        return String(format: "%02i:%02i:%02i", hours,minutes,seconds)
-    }
-    
-    func calcRemain() {
-        let calendar = Calendar.current
-        let targetTime : Date = calendar.date(byAdding: .second, value: 5, to: date, wrappingComponents: false) ?? Date()
-        let remainSeconds = Int(targetTime.timeIntervalSince(date))
-        self.timeRemaining = remainSeconds
     }
     
     func requestCOM_000012() {

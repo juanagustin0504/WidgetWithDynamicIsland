@@ -112,7 +112,7 @@ struct DynamicIslandWidgetLiveActivity: Widget {
     
     func calcRemain() {
         let calendar = Calendar.current
-        let targetTime : Date = calendar.date(byAdding: .second, value: 5, to: date, wrappingComponents: false) ?? Date()
+        let targetTime : Date = calendar.date(byAdding: .second, value: 3600, to: date, wrappingComponents: false) ?? Date()
         let remainSeconds = Int(targetTime.timeIntervalSince(date))
         self.timeRemaining = remainSeconds
     }

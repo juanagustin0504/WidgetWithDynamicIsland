@@ -7,7 +7,6 @@
 	objects = {
 
 /* Begin PBXBuildFile section */
-		7614C6762994E1FA00C8DFE5 /* GitModel.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C6752994E1FA00C8DFE5 /* GitModel.swift */; };
 		7614C67E2999CF1600C8DFE5 /* Network.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C67D2999CF1500C8DFE5 /* Network.swift */; };
 		7614C70729A347D500C8DFE5 /* SmartWidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */; };
 		7614C70B29A348E300C8DFE5 /* SmartWidgetManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */; };
@@ -44,8 +43,6 @@
 		76CAD15C296E7ECE00159CF4 /* WidgetEntry.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD15A296E7ECE00159CF4 /* WidgetEntry.swift */; };
 		76CAD15E296E7EE700159CF4 /* WidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD15D296E7EE700159CF4 /* WidgetEntryView.swift */; };
 		76CAD15F296E7EE700159CF4 /* WidgetEntryView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD15D296E7EE700159CF4 /* WidgetEntryView.swift */; };
-		76CAD165296E80C100159CF4 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD164296E80C100159CF4 /* PullRequest.swift */; };
-		76CAD166296E80C100159CF4 /* PullRequest.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD164296E80C100159CF4 /* PullRequest.swift */; };
 		76CAD169296E81EC00159CF4 /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD168296E81EC00159CF4 /* CodeGenerator.swift */; };
 		76CAD16A296E81EC00159CF4 /* CodeGenerator.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76CAD168296E81EC00159CF4 /* CodeGenerator.swift */; };
 		76D1373729B0709C001D0E3E /* SmartLiveManager.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D1373629B0709C001D0E3E /* SmartLiveManager.swift */; };
@@ -56,6 +53,8 @@
 		76D13B9629C1BF1D001D0E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9529C1BF1D001D0E3E /* Extension.swift */; };
 		76D13B9729C1BF1D001D0E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9529C1BF1D001D0E3E /* Extension.swift */; };
 		76D13B9929C1C1FC001D0E3E /* Extension.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9529C1BF1D001D0E3E /* Extension.swift */; };
+		76D13B9C29C2D432001D0E3E /* CustomDynamicProgressView.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9B29C2D432001D0E3E /* CustomDynamicProgressView.swift */; };
+		76D13B9F29C2D7DD001D0E3E /* ProgressConfig.swift in Sources */ = {isa = PBXBuildFile; fileRef = 76D13B9E29C2D7DD001D0E3E /* ProgressConfig.swift */; };
 /* End PBXBuildFile section */
 
 /* Begin PBXContainerItemProxy section */
@@ -127,7 +126,6 @@
 /* End PBXCopyFilesBuildPhase section */
 
 /* Begin PBXFileReference section */
-		7614C6752994E1FA00C8DFE5 /* GitModel.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = GitModel.swift; sourceTree = "<group>"; };
 		7614C67D2999CF1500C8DFE5 /* Network.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Network.swift; sourceTree = "<group>"; };
 		7614C70429A347D500C8DFE5 /* libSmartWidgetManager.a */ = {isa = PBXFileReference; explicitFileType = archive.ar; includeInIndex = 0; path = libSmartWidgetManager.a; sourceTree = BUILT_PRODUCTS_DIR; };
 		7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartWidgetManager.swift; sourceTree = "<group>"; };
@@ -158,11 +156,12 @@
 		76CAD154296E7EA700159CF4 /* WidgetProvider.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetProvider.swift; sourceTree = "<group>"; };
 		76CAD15A296E7ECE00159CF4 /* WidgetEntry.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntry.swift; sourceTree = "<group>"; };
 		76CAD15D296E7EE700159CF4 /* WidgetEntryView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = WidgetEntryView.swift; sourceTree = "<group>"; };
-		76CAD164296E80C100159CF4 /* PullRequest.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = PullRequest.swift; sourceTree = "<group>"; };
 		76CAD168296E81EC00159CF4 /* CodeGenerator.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CodeGenerator.swift; sourceTree = "<group>"; };
 		76D1373629B0709C001D0E3E /* SmartLiveManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = SmartLiveManager.swift; sourceTree = "<group>"; };
 		76D13B5229C1ACD8001D0E3E /* ImageFileManager.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ImageFileManager.swift; sourceTree = "<group>"; };
 		76D13B9529C1BF1D001D0E3E /* Extension.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = Extension.swift; sourceTree = "<group>"; };
+		76D13B9B29C2D432001D0E3E /* CustomDynamicProgressView.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = CustomDynamicProgressView.swift; sourceTree = "<group>"; };
+		76D13B9E29C2D7DD001D0E3E /* ProgressConfig.swift */ = {isa = PBXFileReference; lastKnownFileType = sourcecode.swift; path = ProgressConfig.swift; sourceTree = "<group>"; };
 /* End PBXFileReference section */
 
 /* Begin PBXFrameworksBuildPhase section */
@@ -237,8 +236,9 @@
 		76290AFA2947FA5C0015F41B /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				76CAD167296E81D100159CF4 /* SmartLib */,
 				76CAD163296E80A800159CF4 /* Model */,
+				76D13B9A29C2D3F3001D0E3E /* View */,
+				76CAD167296E81D100159CF4 /* SmartLib */,
 				76CAD149296E767700159CF4 /* Widgets.entitlements */,
 				76290B2129483A0C0015F41B /* Info.plist */,
 				76290AFB2947FA5C0015F41B /* WidgetsApp.swift */,
@@ -332,8 +332,7 @@
 		76CAD163296E80A800159CF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				76CAD164296E80C100159CF4 /* PullRequest.swift */,
-				7614C6752994E1FA00C8DFE5 /* GitModel.swift */,
+				76D13B9E29C2D7DD001D0E3E /* ProgressConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -344,6 +343,14 @@
 				76CAD168296E81EC00159CF4 /* CodeGenerator.swift */,
 			);
 			path = SmartLib;
+			sourceTree = "<group>";
+		};
+		76D13B9A29C2D3F3001D0E3E /* View */ = {
+			isa = PBXGroup;
+			children = (
+				76D13B9B29C2D432001D0E3E /* CustomDynamicProgressView.swift */,
+			);
+			path = View;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
@@ -519,16 +526,16 @@
 				763EE8FB29484E43007420AB /* DynamicIslandWidgetLiveActivity.swift in Sources */,
 				76D1373729B0709C001D0E3E /* SmartLiveManager.swift in Sources */,
 				76CAD15B296E7ECE00159CF4 /* WidgetEntry.swift in Sources */,
+				76D13B9F29C2D7DD001D0E3E /* ProgressConfig.swift in Sources */,
 				76D13B5329C1ACD8001D0E3E /* ImageFileManager.swift in Sources */,
 				76CAD152296E7E3C00159CF4 /* SmartWidget.swift in Sources */,
 				763EE8F429484D7A007420AB /* DynamicIslandWidget.intentdefinition in Sources */,
 				7614C71429A4916500C8DFE5 /* ContentViewFromWidget.swift in Sources */,
-				76CAD165296E80C100159CF4 /* PullRequest.swift in Sources */,
 				76CAD169296E81EC00159CF4 /* CodeGenerator.swift in Sources */,
 				76D13B9629C1BF1D001D0E3E /* Extension.swift in Sources */,
-				7614C6762994E1FA00C8DFE5 /* GitModel.swift in Sources */,
 				7614C71929A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift in Sources */,
 				7614C67E2999CF1600C8DFE5 /* Network.swift in Sources */,
+				76D13B9C29C2D432001D0E3E /* CustomDynamicProgressView.swift in Sources */,
 				7614C70B29A348E300C8DFE5 /* SmartWidgetManager.swift in Sources */,
 				763EE8E029484CEA007420AB /* WidgetsApp.swift in Sources */,
 			);
@@ -558,7 +565,6 @@
 				76CAD15C296E7ECE00159CF4 /* WidgetEntry.swift in Sources */,
 				76CAD153296E7E3C00159CF4 /* SmartWidget.swift in Sources */,
 				763EE8EA29484D79007420AB /* DynamicIslandWidgetBundle.swift in Sources */,
-				76CAD166296E80C100159CF4 /* PullRequest.swift in Sources */,
 				7614C71A29A4946000C8DFE5 /* ContentViewFromDynamicIsland.swift in Sources */,
 				76CAD16A296E81EC00159CF4 /* CodeGenerator.swift in Sources */,
 				763EE8EC29484D79007420AB /* DynamicIslandWidgetLiveActivity.swift in Sources */,
