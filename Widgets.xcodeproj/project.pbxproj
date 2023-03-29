@@ -202,9 +202,9 @@
 		7614C70529A347D500C8DFE5 /* SmartWidgetManager */ = {
 			isa = PBXGroup;
 			children = (
-				76D13B9529C1BF1D001D0E3E /* Extension.swift */,
-				7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */,
-				76D1373629B0709C001D0E3E /* SmartLiveManager.swift */,
+				76D13BA229C85DE9001D0E3E /* Widget */,
+				76D13BA129C85DDD001D0E3E /* LiveActivity */,
+				76D13BA029C85DCE001D0E3E /* Helper */,
 			);
 			path = SmartWidgetManager;
 			sourceTree = "<group>";
@@ -332,7 +332,6 @@
 		76CAD163296E80A800159CF4 /* Model */ = {
 			isa = PBXGroup;
 			children = (
-				76D13B9E29C2D7DD001D0E3E /* ProgressConfig.swift */,
 			);
 			path = Model;
 			sourceTree = "<group>";
@@ -348,9 +347,42 @@
 		76D13B9A29C2D3F3001D0E3E /* View */ = {
 			isa = PBXGroup;
 			children = (
-				76D13B9B29C2D432001D0E3E /* CustomDynamicProgressView.swift */,
 			);
 			path = View;
+			sourceTree = "<group>";
+		};
+		76D13BA029C85DCE001D0E3E /* Helper */ = {
+			isa = PBXGroup;
+			children = (
+				76D13B9529C1BF1D001D0E3E /* Extension.swift */,
+			);
+			path = Helper;
+			sourceTree = "<group>";
+		};
+		76D13BA129C85DDD001D0E3E /* LiveActivity */ = {
+			isa = PBXGroup;
+			children = (
+				76D13BA329CACCB5001D0E3E /* CustomDynamicIsland */,
+				76D1373629B0709C001D0E3E /* SmartLiveManager.swift */,
+			);
+			path = LiveActivity;
+			sourceTree = "<group>";
+		};
+		76D13BA229C85DE9001D0E3E /* Widget */ = {
+			isa = PBXGroup;
+			children = (
+				7614C70629A347D500C8DFE5 /* SmartWidgetManager.swift */,
+			);
+			path = Widget;
+			sourceTree = "<group>";
+		};
+		76D13BA329CACCB5001D0E3E /* CustomDynamicIsland */ = {
+			isa = PBXGroup;
+			children = (
+				76D13B9E29C2D7DD001D0E3E /* ProgressConfig.swift */,
+				76D13B9B29C2D432001D0E3E /* CustomDynamicProgressView.swift */,
+			);
+			path = CustomDynamicIsland;
 			sourceTree = "<group>";
 		};
 /* End PBXGroup section */
