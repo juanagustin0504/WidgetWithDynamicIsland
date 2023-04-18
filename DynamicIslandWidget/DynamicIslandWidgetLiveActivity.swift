@@ -34,24 +34,9 @@ struct DynamicIslandWidgetLiveActivity: Widget {
         ActivityConfiguration(for: DynamicIslandWidgetAttributes.self) { context in
             // Lock screen/banner UI goes here
             VStack(alignment: .center) {
-//                let userDefaults = UserDefaults.shared
-//                let isQR = userDefaults.bool(forKey: "IS_QR")
-//                if isQR {
-//                    Image(uiImage: UIImage(data: userDefaults.data  (forKey: "QR_IMAGE_DATA")!)!.resize(newWidth: 100))
-//                        .padding(10)
-//                } else {
-//                    Image(uiImage: UIImage(data: userDefaults.data(forKey: "BARCODE_IMAGE_DATA")!)!.resize(newWidth: 200))
-//                        .padding(10)
-//                }
                 ZStack {
-                    Text(convertSecondsToTime(timeInSeconds:context.state.time))
+                    Text("잠금화면, 배너 위젯")
                         .font(.system(size: 50))
-                        .onReceive(timer) { _ in
-                            timeRemaining -= 1
-                        }
-                }
-                .onAppear {
-                    calcRemain()
                 }
             }
             .foregroundColor(.white)
@@ -101,19 +86,5 @@ struct DynamicIslandWidgetLiveActivity: Widget {
             .widgetURL(URL(string: "dynamic_island://"))
             .keylineTint(Color.cyan)
         }
-    }
-    
-    func convertSecondsToTime(timeInSeconds: Int) -> String {
-        let hours = timeInSeconds / 3600
-        let minutes = (timeInSeconds - hours*3600) / 60
-        let seconds = timeInSeconds % 60
-        return String(format: "%02i:%02i:%02i", hours,minutes,seconds)
-    }
-    
-    func calcRemain() {
-        let calendar = Calendar.current
-        let targetTime : Date = calendar.date(byAdding: .second, value: 3600, to: date, wrappingComponents: false) ?? Date()
-        let remainSeconds = Int(targetTime.timeIntervalSince(date))
-        self.timeRemaining = remainSeconds
     }
 }

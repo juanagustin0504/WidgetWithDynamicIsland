@@ -11,7 +11,7 @@ import UIKit
 struct WidgetProvider: TimelineProvider {
     typealias Entry = WidgetEntry
     
-    /// 위젯 추가 시 보이는 placeholder
+    /// 데이터를 불러오기 전에 보여줄 placeholder
     func placeholder(in context: Context) -> WidgetEntry {
         let img1 = UIImage(named: "qr")!.resize(newWidth: 50)
 
@@ -20,7 +20,7 @@ struct WidgetProvider: TimelineProvider {
         return entry
     }
     
-    /// 위젯 추가 화면에서 보이는 스냅샷
+    /// 위젯 갤러리에서 위젯을 고를 때 보여줄 snapshot
     func getSnapshot(in context: Context, completion: @escaping (WidgetEntry) -> Void) {
         let img1 = UIImage(named: "barcode")!.resize(newWidth: 50)
         
@@ -29,7 +29,7 @@ struct WidgetProvider: TimelineProvider {
         completion(entry)
     }
     
-    /// 첫 실행 및 새로고침 시 작동하는 timeline
+    /// 홈화면에 있는 위젯을 언제 업데이트 시킬 것인지 구현하는 timeline
     func getTimeline(in context: Context, completion: @escaping (Timeline<WidgetEntry>) -> Void) {
         let currentDate = Date()
         // 30초마다 refresh

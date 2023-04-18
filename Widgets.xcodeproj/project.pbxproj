@@ -236,8 +236,6 @@
 		76290AFA2947FA5C0015F41B /* Widgets */ = {
 			isa = PBXGroup;
 			children = (
-				76CAD163296E80A800159CF4 /* Model */,
-				76D13B9A29C2D3F3001D0E3E /* View */,
 				76CAD167296E81D100159CF4 /* SmartLib */,
 				76CAD149296E767700159CF4 /* Widgets.entitlements */,
 				76290B2129483A0C0015F41B /* Info.plist */,
@@ -329,26 +327,12 @@
 			path = ViewContent;
 			sourceTree = "<group>";
 		};
-		76CAD163296E80A800159CF4 /* Model */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = Model;
-			sourceTree = "<group>";
-		};
 		76CAD167296E81D100159CF4 /* SmartLib */ = {
 			isa = PBXGroup;
 			children = (
 				76CAD168296E81EC00159CF4 /* CodeGenerator.swift */,
 			);
 			path = SmartLib;
-			sourceTree = "<group>";
-		};
-		76D13B9A29C2D3F3001D0E3E /* View */ = {
-			isa = PBXGroup;
-			children = (
-			);
-			path = View;
 			sourceTree = "<group>";
 		};
 		76D13BA029C85DCE001D0E3E /* Helper */ = {

@@ -17,10 +17,14 @@ struct WidgetsApp: App {
             NavigationStack(path: $stack) {
                 ContentView()
                     .onOpenURL { url in
+                        // Link된 url 받아서 스택에 추가(String)
                         print("url : \(url.description)")
                         stack.append(url.description)
                     }
                     .navigationDestination(for: String.self) { str in
+                        // 스택에 url이 추가되면 Naviagtion 작동
+                        // Widget을 통해 들어오면 QR, BARCODE
+                        // 그 외 Dynamic Island
                         if str.contains("QR") || str.contains("BARCODE") {
                             ContentViewFromWidget()
                         } else {
